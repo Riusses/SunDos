@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<div class="panel-heading">Categories</div>
+<div class="panel-body">
+    {% if categories_list %} {% for category in categories_list %}
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div id="category" class="panel panel-default">
+            <div class="panel-body">
+                {{category.nom}}
+                <div class="pull-right">
+                    <a class="wall-entry icon-space-right" href="{% url 'items:editCategory' category.pk %}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a class="wall-entry" href="{% url 'items:removeCategory' category.pk %}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>No hi ha categories a la llista, <a href="{% url 'items:addCategory' %}">afegeix-ne una</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}

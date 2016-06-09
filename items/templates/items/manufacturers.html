@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<div class="panel-heading">Fabricants</div>
+<div class="panel-body">
+    {% if manufacturers_list %} {% for manufacturer in manufacturers_list %}
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div id="manufacturer" class="panel panel-default">
+            <div class="panel-body">
+                {{manufacturer.nom}}
+                <div class="pull-right">
+                    <a class="wall-entry" href="{% url 'items:editManufacturer' manufacturer.pk %}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a class="wall-entry" href="{% url 'items:removeManufacturer' manufacturer.pk %}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>No hi ha fabricants a la llista, <a href="{% url 'items:addManufacturer' %}">afegeix-ne un</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}
