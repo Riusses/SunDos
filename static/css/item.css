@@ -1,0 +1,13 @@
+/* PANELS */
+
+#panel-base {
+    border: 0;
+}
+
+#panel-base .panel-heading {
+    border: 1px solid #DDD;
+}
+
+.panel {
+    box-shadow: None !important;
+}

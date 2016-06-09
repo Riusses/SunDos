@@ -1,0 +1,105 @@
+/* MESSAGES */
+
+.messages {
+    padding-left: 0;
+}
+
+
+/* NAVBAR */
+
+#red-cart {
+    width: 20px;
+    height: 20px;
+    background-color: #F00;
+    border-radius: 100%;
+    margin: -15px 0 0 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-li-space {
+    margin-right: 0.45em;
+}
+
+
+/* TEXT PROPERTY */
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+
+/* FORMS */
+
+#id_resum {
+    resize: none;
+}
+
+.asteriskField {
+    color: #FF0000;
+}
+
+
+/* LINKS */
+
+.wall-entry {
+    text-decoration: none !important;
+}
+
+.icon-space-right {
+    margin-right: 0.15em;
+}
+
+.icon-space-left {
+    margin-left: 0.15em;
+}
+
+.icon-space-all {
+    margin: 0 0.15em;
+}
+
+
+/* PANELS */
+
+#item .panel-heading {
+    border: 1px solid #DDD;
+}
+
+.panel-item {
+    background-color: #FBFBFB !important;
+    border: 0 !important;
+    border-bottom: 1px solid !important;
+}
+
+.panel-item-default {
+    border-color: #DDD !important;
+}
+
+
+/* TABLES */
+
+@media screen and (max-width: 540px) {
+    .th-hidden {
+        display: none !important;
+    }
+    .td-hidden {
+        display: none !important;
+    }
+    .th-show {
+        display: inline-table !important;
+    }
+    .td-show {
+        display: inline-table !important;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .th-show {
+        display: none !important;
+    }
+    .td-show {
+        display: none !important;
+    }
+}

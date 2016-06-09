@@ -1,0 +1,48 @@
+/* BODY */
+
+body {
+    background-color: #222 !important;
+    color: #FFF !important;
+}
+
+
+/* MESSAGES */
+
+.messages {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+
+/* FORMS */
+
+#div_id_username label {
+    display: none;
+}
+
+#div_id_password label {
+    display: none;
+}
+
+#submit-id-submit {
+    width: 100%;
+}
+
+
+/* LOGIN */
+
+#title {
+    font-size: 70px;
+}
+
+.login-form {
+    text-align: center;
+    margin: 100px auto;
+    max-width: 450px;
+}
+
+@media screen and (max-width: 480px) {
+    .login-form {
+        max-width: 350px;
+    }
+}
