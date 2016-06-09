@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load staticfiles %} {% load crispy_forms_tags %} {% block css %}
+<!-- Login Design -->
+<link href="{% static 'css/login.css' %}" rel="stylesheet"> {% endblock %} {% block body %}
+<div class="container login-form">
+    <div class="panel-heading">
+        <h1 id="title">SunDos</h1>
+    </div>
+    {% include 'partials/layout_messages.html' %}
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="panel-body">
+            {% crispy form %}
+            <div class="bottom text-center">
+                Ets nou? <a href="{% url 'registration' %}"><b>Uneix-te</b></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

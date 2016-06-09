@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load staticfiles %} {% load crispy_forms_tags %} {% block css %}
+<!-- Registration Design -->
+<link href="{% static 'css/registration.css' %}" rel="stylesheet"> {% endblock %} {% block body %}
+<div class="container registration-form">
+    <div class="panel-heading">
+        <h1 id="title">SunDos</h1>
+    </div>
+    {% include 'partials/layout_messages.html' %}
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="panel-body">
+            {% crispy form %}
+        </div>
+    </div>
+</div>
+{% endblock %} {% block scripts %}
+<!-- Check Password -->
+<script src="{% static 'js/check-password.js' %}" type="text/javascript"></script>
+{% endblock %}

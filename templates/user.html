@@ -1,0 +1,35 @@
+{%extends 'base.html' %} {% load staticfiles %} {% block css %}
+<!-- Base Design -->
+<link href="{% static 'css/base.css' %}" rel="stylesheet"> {% endblock %} {% block content %}
+<div class="panel-heading">Editar el perfil</div>
+<div class="panel-body">
+    <div class="jumbotron text-justify" style="padding:2em 1em 1em 2em;">
+        <p>Hola, benvingut/da a la nostre botiga. <span class="capitalize">{{user.username}}</span>, si vols veure les teves comandes fes <a href="{% url 'carts:llistaComandes' %}">clic aquí</a>.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-8">
+        <table class="table table-hover table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <td colspan="2"><small>Dades de l'usuari</small></td>
+                </tr>
+                <tr>
+                    <th class="th-hidden">Usuari</th>
+                    <td class="capitalize">{{user.username}}</td>
+                </tr>
+                <tr>
+                    <th class="th-hidden">Correu electrònic</th>
+                    <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                    <th class="th-hidden">Modificar contrasenya</th>
+                    <td>
+                        <a class="wall-entry" href="{% url 'resetPassword' %}">
+                            Canviar la contrasenya
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
