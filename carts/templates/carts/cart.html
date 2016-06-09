@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block css %}
+<!-- Base Design -->
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<!-- No More Tables -->
+<link href="{% static 'css/no-more-tables.css' %}" rel="stylesheet"> {% endblock %} {% block content %}
+<div class="panel-heading">Llista de productes</div>
+<div class="panel-body">
+    {% if ui_cart %}
+    <div class="table-responsive">
+        <table id="no-more-tables" class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Imatge</th>
+                    <th>Unitats</th>
+                    <th>Preu</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for carret in ui_cart %}
+                <tr>
+                    <td data-title="Nom">{{carret.producte.nom}}</td>
+                    <td data-title="Imatge">
+                        <img src="{{carret.producte.imatge.url}}" style="width:100px;">
+                    </td>
+                    <td data-title="Unitats">{{carret.quantitat}}</td>
+                    <td data-title="Preu">{{carret.preu}} €</td>
+                    <td data-title="Editar">
+                        <div class="btn-group">
+                            <a class="wall-entry" href="{% url 'carts:actualitzarCarret' carret.producte.id %}"><span class="glyphicon glyphicon-minus"></span> <span class="glyphicon glyphicon-plus"></span></a>
+                            <a class="wall-entry" href="{% url 'carts:esborrarLinia' carret.producte.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th class="text-right th-hidden" colspan="4">Preu total</th>
+                    <td data-title="Total">{{preu_comanda}} €</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn-group">
+            <a class="btn btn-info" role="button" href="{% url 'carts:esborrarComanda' %}"><span class="glyphicon glyphicon-remove"></span> Cancel·lar comanda</a>
+            <a class="btn btn-primary" role="button" href="{% url 'carts:confirmarCarret' %}"><span class="glyphicon glyphicon-ok"></span> Confirmar comanda</a>
+        </div>
+    </div>
+    {% else %}
+    <p>No hi han productes en el carret.</p>
+    {% endif %}
+</div>
+{% endblock %}

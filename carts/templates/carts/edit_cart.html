@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load staticfiles %} {% load crispy_forms_tags %} {% block css %}
+<!-- Base Design -->
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<!-- Cart Design -->
+<link href="{% static 'css/cart.css' %}" rel="stylesheet">
+<!-- No More Tables -->
+<link href="{% static 'css/no-more-tables.css' %}" rel="stylesheet"> {% endblock %} {% block content %}
+<div class="panel-heading">Afegint al carret</div>
+<div class="panel-body">
+    <div class="panel-body">
+        {% if producte %}
+        <form id="form" method="post">
+            <div class="table-responsive">
+                <table id="no-more-tables" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Imatge</th>
+                            <th>Unitats</th>
+                            <th>Preu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Nom">{{producte.nom}}</td>
+                            <td data-title="Imatge">
+                                <img src="{{producte.imatge.url}}" style="width:100px;">
+                            </td>
+                            <td data-title="Unitats">{% crispy form %}</td>
+                            <td data-title="Preu">{{producte.preu}} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-group">
+                    <a class="btn btn-info" role="button" href="{{request.META.HTTP_REFERER}}"><span class="glyphicon glyphicon-remove"></span> Enrere</a>
+                    <button class="btn btn-primary" role="button" type="submit" form="form" value="Submit"><span class="glyphicon glyphicon-ok"></span> Confirmar producte</button>
+                </div>
+            </div>
+        </form>
+        {% else %}
+        <p>La ID del producte no és vàlida.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

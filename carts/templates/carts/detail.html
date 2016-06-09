@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block css %}
+<!-- Base Design -->
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<!-- No More Tables -->
+<link href="{% static 'css/no-more-tables.css' %}" rel="stylesheet"> {% endblock %} {% block content %}
+<div class="panel-heading">
+    Detall de la comanda
+    <div class="pull-right"><a class="wall-entry" href="{% url 'carts:llistaComandes' %}"><span class="glyphicon glyphicon-arrow-left"></span> Enrere</a></div>
+</div>
+<div class="panel-body">
+    {% if ui_comanda %}
+    <div class="table-responsive">
+        <table id="no-more-tables" class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th class="th-hidden">Imatge</th>
+                    <th>Unitats</th>
+                    <th>Preu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comanda in ui_comanda %}
+                <tr>
+                    <td data-title="Nom">{{comanda.producte.nom}}</td>
+                    <td class="td-hidden"><img src="{{comanda.producte.imatge.url}}" alt="{{comanda.producte.nom}}" style="width:100px;"></td>
+                    <td data-title="Unitats">{{comanda.quantitat}}</td>
+                    <td data-title="Preu">{{comanda.preu}} €</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th class="text-right th-hidden" colspan="3">Preu total</th>
+                    <td data-title="Total">{{preu_comanda}} €</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No hi ha cap comanda amb aquest número de ID.</p>
+    {% endif %}
+</div>
+{% endblock %}
